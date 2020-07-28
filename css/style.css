@@ -147,6 +147,10 @@ body {
     background-color: var(--background-colour);
     border: 1px solid #ECECEC;
 }
+/* .page-header {
+    position: fixed;
+    min-width: 100%;
+} */
 /* block hero */
 .hero {
     text-align: center;
@@ -247,7 +251,14 @@ body {
     display: flex;
     align-items: center;
 }
+.activities-item {
+    position: relative;
+}
 .title-activities {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 100%;
     font-weight: 700;
     font-size: inherit;
     line-height: 1.14;
@@ -258,6 +269,7 @@ body {
     padding-bottom: 27px;
     margin: 0px 0px;
 }
+
 .activities-item + .activities-item {
 margin-left: 30px;
 }
@@ -438,16 +450,6 @@ margin-left: 10px;
     margin-left: 10px;
 }
 
-/* .button1::after {
-    content: "";
-    width: 24px;
-    height: 24px;
-    margin-left: 10px;
-    background-image: url(../images/icon-send.svg);
-    background-size: contain;
-
-
-} */
 /* styles for portfolio */      
 /* button */
 
@@ -491,9 +493,13 @@ margin-left: 10px;
     padding-bottom: 94px;
 }
 .project-list {
+    position: relative;
     width: 370px;
     margin-right: 30px;
     margin-bottom: 30px;
+}
+.img-wraper {
+    position: relative;
 }
 .project-list:hover {
     box-shadow: 1px 4px 6px rgba(0, 0, 0, 0.16), 
@@ -503,13 +509,20 @@ margin-left: 10px;
 .project-list:nth-child(3n) {
     margin-right: 0px;
 }
+
+.project-list img {
+    display: block;
+}
 .project-list:nth-last-child(-n+3) {
     margin-bottom: 30px;
 }
 .projects {
     text-decoration: none;
 }
-.projects .project-title {
+.projects:hover .project-text {
+opacity: 1;
+}     
+.projects-list.project-title {
 font-weight: 700;
 font-size: 18px;
 line-height: 2.0;
@@ -527,6 +540,11 @@ padding: 0px 24px 20px 24px;
 margin: 0px;
 }
 .projects .project-text {
+position: absolute;
+top: 0;
+left: 0;
+height: 100%;
+opacity: 0;
 font-size: 18px;
 line-height: 1.56;
 color: var(--background-colour);
