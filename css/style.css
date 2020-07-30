@@ -77,7 +77,7 @@ body {
     letter-spacing: 0.02em;
     list-style: none;
     text-decoration: none;
-
+    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .site-nav .nav-item:hover,
@@ -92,15 +92,15 @@ body {
     display: block;
     color: var(--accent-colour);
     text-decoration:none;
+    position: relative;
 }
 .nav-item.current::after {
-    width: 50px;
-    content: "";
-    display: block;
-    align-content: stretch;
     position: absolute;
-    margin-bottom: 0px;
-    margin-top: 28px;
+    display: block;
+    bottom: 0;
+    left: 0;
+    content: "";
+    width: 100%;
     height: 5px;
     background-color: var(--accent-colour);
     border-radius: 2px;
@@ -122,6 +122,7 @@ body {
     line-height: 1.14;
     letter-spacing: 0.02em;
     text-decoration: none;
+    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .contacts-item:not(last-child) {
     margin-left: 30px;
@@ -139,6 +140,7 @@ body {
 .contacts-icon {
     margin-right: 10px;
     fill: var(--primary-text-colour);
+    transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .page-header .container {
     display: flex;
@@ -192,6 +194,10 @@ body {
     text-align: center;
     border: 1px solid transparent;
     cursor: pointer;
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.modal-button:hover {
+    background-color: #188CE8;
 }
 
 /* site-advantages */
@@ -305,6 +311,10 @@ margin-left: 30px;
     justify-content: center;
 }
 
+.social-media-list li :hover,
+.social-media-list li :focus {
+    background-color: var(--accent-colour);
+}
 .social-media a {
     display: flex;
     width: 44px;
@@ -313,12 +323,14 @@ margin-left: 30px;
     background-color: var(--background-colour);
     justify-content: center;
     align-items: center;
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .social-media + .social-media {
 margin-left: 10px;
 }
 .media-icon {
     fill: var(--icons-colour);
+    transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .social-media-link:hover .media-icon {
     fill: var(--background-colour);
@@ -348,12 +360,14 @@ margin-left: 10px;
     border-radius: 4px;
     width: 170px;
     height: 90px;
+    transition: border 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .clients-icon {
     fill: var(--icons-colour);
     width: 80px;
     height: 42px;
+    transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .clients-item + .clients-item {
@@ -393,16 +407,17 @@ margin-left: 30px;
     justify-content: center;
     align-items: center;
     background-color: rgba(255, 255, 255, 0.1);
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+.social-media-list a:hover {
+background-color: var(--accent-colour);
+}
 .social-media-item + .social-media-item {
 margin-left: 10px;
 }
 
-.social-media-list li :hover,
-.social-media-list li :focus {
-    background-color: var(--accent-colour);
-}
+
 .footer-container2 {
     margin-right: 94px;
     width: 206px;
@@ -476,6 +491,7 @@ margin-left: 10px;
     min-width: 73px;
     border: 1px solid transparent;
     cursor: pointer;
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .button:hover,
 .button:focus {
@@ -493,19 +509,23 @@ margin-left: 10px;
     padding-bottom: 94px;
 }
 .project-list {
-    position: relative;
     width: 370px;
     margin-right: 30px;
     margin-bottom: 30px;
 }
 .img-wraper {
     position: relative;
+    overflow: hidden;
 }
 .project-list:hover {
     box-shadow: 1px 4px 6px rgba(0, 0, 0, 0.16), 
     0px 4px 4px rgba(0, 0, 0, 0.06), 
     0px 1px 1px rgba(0, 0, 0, 0.12);
 }
+
+.projects-link:hover .project-text {
+   top: 0;
+    } 
 .project-list:nth-child(3n) {
     margin-right: 0px;
 }
@@ -516,13 +536,11 @@ margin-left: 10px;
 .project-list:nth-last-child(-n+3) {
     margin-bottom: 30px;
 }
-.projects {
+.projects-link {
     text-decoration: none;
 }
-.projects:hover .project-text {
-opacity: 1;
-}     
-.projects-list.project-title {
+    
+.projects .project-title {
 font-weight: 700;
 font-size: 18px;
 line-height: 2.0;
@@ -541,10 +559,10 @@ margin: 0px;
 }
 .projects .project-text {
 position: absolute;
-top: 0;
+top: 100%;
 left: 0;
 height: 100%;
-opacity: 0;
+transition: all 0.5s linear;
 font-size: 18px;
 line-height: 1.56;
 color: var(--background-colour);
